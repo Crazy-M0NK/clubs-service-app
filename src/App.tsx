@@ -5,7 +5,7 @@ init();
 
 function App() {
   const rawInitData = useRawInitData();
-  const initData = parseInitDataQuery(rawInitData ?? "");
+  const initData = parseInitDataQuery(rawInitData ?? ""); //InitDataGenType
 
   if (!rawInitData)
     return (
