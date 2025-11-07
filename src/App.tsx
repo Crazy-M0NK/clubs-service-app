@@ -1,42 +1,37 @@
-import { init, parseInitDataQuery, useRawInitData } from "@tma.js/sdk-react";
-import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
-init();
+import Layout from "./Layout";
+// Импорты экранов и компонентов
+import Home from "./screens/Home";
+import Club from "./screens/Club";
+import Deposits from "./screens/Deposits";
+import Managers from "./screens/Managers";
+import Players from "./screens/Players";
+import Settings from "./screens/Settings";
+import Withdrawals from "./screens/Withdrawals";
 
-function App() {
-  const rawInitData = useRawInitData();
-  const initData = parseInitDataQuery(rawInitData ?? ""); //InitDataGenType
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Layout,
+    //errorElement: <ErrorPage />,
+    children: [
+      { index: true, Component: Home },
+      {
+        path: "club/:club_id",
+        Component: Club,
+        children: [
+          { path: "managers", Component: Managers },
+          { path: "players", Component: Players },
+          { path: "deposits", Component: Deposits },
+          { path: "withdrawals", Component: Withdrawals },
+          { path: "settings", Component: Settings },
+        ],
+      },
+    ],
+  },
+]);
 
-  if (!rawInitData)
-    return (
-      <>
-        <p className="text-xl">Загрузка данных Telegram...</p>
-      </>
-    );
-
-  return (
-    <div className="max-w-screen">
-      <p className="">
-        Привет, твоя InitData:
-        {Object.entries(initData).map(([key, value]) => {
-          if (typeof value === "object")
-            return Object.entries(value as object).map(([key, value]) => (
-              <p key={key}>
-                {key}: {String(value)}
-              </p>
-            ));
-          return (
-            <p key={key}>
-              {key}:{" "}
-              {key === "auth_date"
-                ? new Date(value as Date).toJSON()
-                : String(value)}
-            </p>
-          );
-        })}
-      </p>
-    </div>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;
