@@ -2,8 +2,7 @@ import { Outlet } from "react-router";
 
 export default function Layout() {
   return (
-    <div>
-      <p>TESTTESTETSTEGETS</p>
+    <div className="px-4">
       <Outlet />
     </div>
   );

@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Layout from "./Layout";
 // Импорты экранов и компонентов
-import Home from "./screens/Home";
+import { Home } from "./screens/Home";
 import Club from "./screens/Club";
 import Deposits from "./screens/Deposits";
 import Managers from "./screens/Managers";
