@@ -1,5 +1,6 @@
 //init();
 
+import { GradientButton } from "../../components/GradientButton";
 import { ClubCard } from "./ClubCard";
 
 export default function Home() {
@@ -22,6 +23,9 @@ export default function Home() {
         Добро пожаловать! Выберите клуб
       </h1>
       <ClubCard name="Harman" id={1} image="http://www.chototam.com" />
+      <ClubCard name="Harman" id={1} image="http://www.chototam.com" />
+      <ClubCard name="Harman" id={1} image="http://www.chototam.com" />
+      <GradientButton onPress={() => {}} text={"Добавить новый клуб"} icon />
       {
         //*Первая версия отображения данных
         /* 
