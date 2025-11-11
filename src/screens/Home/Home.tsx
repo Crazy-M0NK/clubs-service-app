@@ -22,9 +22,9 @@ export default function Home() {
       <h1 className="max-w-[289px] font-bold text-[32px] leading-10 mb-6">
         Добро пожаловать! Выберите клуб
       </h1>
-      <ClubCard name="Harman" id={1} image="http://www.chototam.com" />
-      <ClubCard name="Harman" id={1} image="http://www.chototam.com" />
-      <ClubCard name="Harman" id={1} image="http://www.chototam.com" />
+      <ClubCard name="Harman" id={154234} image="http://www.chototam.com" />
+      <ClubCard name="Harman" id={12} image="http://www.chototam.com" />
+      <ClubCard name="Harman" id={24231} image="http://www.chototam.com" />
       <GradientButton onPress={() => {}} text={"Добавить новый клуб"} icon />
       {
         //*Первая версия отображения данных
